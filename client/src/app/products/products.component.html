@@ -1,0 +1,30 @@
+<div class="grid">
+  @for (product of paginatedProducts; track product.id) {
+  <div class="product-card">
+    <div class="product-image">
+      <img [src]="product.image" alt="product" />
+    </div>
+    <div class="product-info">
+      <p class="product-title">{{ product.title }}</p>
+      <p class="product-price">{{ product.price | currency : "JOD" }}</p>
+    </div>
+    <div class="product-actions"></div>
+    <div class="product-actions">
+      <button class="edit-btn" (click)="onEdit(product)">
+        <app-edit></app-edit>
+      </button>
+      <button class="delete-btn" (click)="onDelete(product)">
+        <app-delete></app-delete>
+      </button>
+
+    </div>
+  </div>
+  }
+</div>
+
+<app-pagination
+  [currentPage]="page"
+  [totalPages]="totalPages"
+  (pageChange)="onPageChange($event)"
+></app-pagination>
+

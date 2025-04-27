@@ -1,0 +1,55 @@
+<div class="edit-dialog">
+  <h2>Edit Product</h2>
+  <form>
+
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="data.title" name="title">
+
+    <label>Price:</label>
+    <input type="number" [(ngModel)]="data.price" name="price">
+
+    <label>Category:</label>
+    <select [(ngModel)]="data.category" name="category">
+      @for (cat of categories; track cat) {
+        <option [value]="cat">{{ cat }}</option>
+      }
+    </select>
+
+    <label>Image:</label>
+    <div class="upload-area">
+      <div class="upload-controls">
+        <input
+          class="file-name-input"
+          type="text"
+          [value]="selectedFileName"
+          placeholder="No file chosen"
+          readonly
+        />
+        <button type="button" (click)="triggerFileInput()">Upload</button>
+      </div>
+
+      <input
+        type="file"
+        id="fileInput"
+        (change)="onFileSelected($event)"
+        hidden
+      />
+
+      @if (selectedImagePreview) {
+        <div class="image-preview">
+          <img [src]="selectedImagePreview" alt="Uploaded Image" />
+          <button type="button" class="remove-image-btn" (click)="removeImage()">X</button>
+        </div>
+      }
+    </div>
+
+    <label>Description:</label>
+    <textarea [(ngModel)]="data.description" name="description"></textarea>
+
+    <div class="actions">
+      <button type="button" class="save-btn" (click)="save()">Save</button>
+      <button type="button" class="cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+</div>

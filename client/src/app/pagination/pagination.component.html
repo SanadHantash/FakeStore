@@ -1,0 +1,19 @@
+<div class="pagination-container">
+  <button class="arrow" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+    ‹
+  </button>
+
+  @for (page of visiblePages; track page) {
+    <button
+      class="page-number"
+      [class.active]="page === currentPage"
+      (click)="goToPage(page)"
+    >
+      {{ page }}
+    </button>
+  }
+
+  <button class="arrow" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+    ›
+  </button>
+</div>
