@@ -36,10 +36,10 @@ export class EditProductComponent {
     }
   }
 
-  triggerFileInput() {
-    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-    if (fileInput) {
-      fileInput.click();
+  triggerFileEditInput() {
+    const fileEditInput = document.getElementById('fileEditInput') as HTMLInputElement;
+    if (fileEditInput) {
+      fileEditInput.click();
     }
   }
 

@@ -25,12 +25,12 @@
           placeholder="No file chosen"
           readonly
         />
-        <button type="button" (click)="triggerFileInput()">Upload</button>
+        <button type="button" (click)="triggerFileEditInput()">Upload</button>
       </div>
 
       <input
         type="file"
-        id="fileInput"
+        id="fileEditInput"
         (change)="onFileSelected($event)"
         hidden
       />
